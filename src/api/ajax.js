@@ -30,12 +30,15 @@ export default function ajax(url,data={},type='GET') {
         url = url + '?' + dataString;
       }
       //使用axios发送get请求
-      promise = axios(url)
+      promise = axios.get(url)
+      ///console.log(promise)
     } else {
       //使用axios发送post请求
       //post请求不用
       promise = axios.post(url, data)
     }
+    //response是axios发送请求后得到的promise对象中的response，
+    //最后因为响应体的数据杂多，这里只取response中的data
     promise.then(function (response) {
       //成功了则调用resolve
       resolve(response.data);

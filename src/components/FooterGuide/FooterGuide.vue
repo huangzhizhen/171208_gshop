@@ -65,6 +65,6 @@ export default {
         font-size 12px
         margin-top 2px
         margin-bottom 2px
-        .iconfont
+      n  .iconfont
           font-size 22px
 </style>

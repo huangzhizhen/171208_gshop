@@ -10,13 +10,13 @@
 </template>
 
 <script>
+
 export default {
-  props:{
+  props: {
     title: String
   }
 }
 </script>
-
 <style lang="stylus" rel="stylesheet/stylus">
 .header
   background-color #02a774

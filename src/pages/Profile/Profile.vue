@@ -4,17 +4,17 @@
     <section class="profile-number">
       <!--表示点击这个区域内均可以跳转到登录页面-->
       <!---->
-      <router-link to="/login" class="profile-link">
+      <router-link :to="userInfo._id?'/userInfo':'/login'" class="profile-link">
         <div class="profile_image">
           <i class="iconfont icon-person icon-yonghu"></i>
         </div>
         <div class="user-info">
-          <p class="user-info-top">登录/注册</p>
+          <p class="user-info-top" v-if="!userInfo.phone">{{userInfo.name||'登录/注册'}}</p>
           <p>
             <span class="user-icon">
               <i class="iconfont icon-phone icon-mobile"></i>
             </span>
-            <span class="icon-mobile-number">暂无绑定手机号</span>
+            <span class="icon-mobile-number">{{userInfo.phone||'暂无绑定手机号'}}</span>
           </p>
         </div>
         <span class="arrow">
@@ -69,7 +69,7 @@
               <i class="iconfont icon-vip"></i>
             </span>
         <div class="my_order_div">
-          <span>硅谷外卖会员卡</span>
+          <span>今日食会员卡</span>
           <span class="my_order_icon">
                 <i class="iconfont icon-jiantou1"></i>
               </span>
@@ -85,21 +85,43 @@
         <div class="my_order_div">
           <span>服务中心</span>
           <span class="my_order_icon">
-                <i class="iconfont icon-jiantou1"></i>
-              </span>
+            <i class="iconfont icon-jiantou1"></i>
+          </span>
         </div>
       </a>
+    </section>
+    <section class="profile_my_order border-1px">
+      <mt-button type="danger" style="width:100%" v-if="userInfo._id" @click="logout">退出登录</mt-button>
     </section>
   </section>
 </template>
 
 <script>
-import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
-export default {
-  components:{
-    HeaderTop
+  import {MessageBox,Toast} from 'mint-ui'
+  import {mapState} from 'vuex'
+  import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
+  export default {
+    methods:{
+      logout(){
+        //传两个参数，一个是’确认‘是调用，一个是’取消时调用
+        MessageBox.confirm('确定退出？').then(action=>{
+          //确定请求退出
+          //实质是发送了一个异步请求，退出的请求
+          this.$store.dispatch('logout')
+          Toast('登出成功')
+        },
+        action=>{
+          console.log('点击了取消')
+        })
+      }
+    },
+    computed:{
+      ...mapState(['userInfo'])
+    },
+    components:{
+      HeaderTop
+    }
   }
-}
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">

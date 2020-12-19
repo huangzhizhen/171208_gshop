@@ -11,8 +11,19 @@
 
 <script>
 import FooterGuide from './components/FooterGuide/FooterGuide.vue'
+//import {reqFootCategory, reqFootTypes} from './api'
+import {mapActions} from 'vuex'
 export default {
-  name: 'App',
+  mounted () {
+    /*this.$store.dispatch("getAddress")
+    this.$store.dispatch("getShops")
+    this.$store.dispatch("getCategorys")*/
+    this.getAddress()
+    this.getUserInfo()
+  },
+  methods:{
+    ...mapActions(['getAddress','getUserInfo'])  //因此在mounted中可以直接调用getAddress()方法
+  },
   components: {
     FooterGuide
   }

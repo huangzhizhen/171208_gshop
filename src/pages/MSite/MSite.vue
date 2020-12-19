@@ -1,123 +1,46 @@
-<template>
+`<template>
   <!--首页外卖-->
   <section class="msite">
     <!--首页头部-->
-    <HeaderTop title="广东省梅州市梅江区嘉应学院江北校区">
-      <span class="header_search" slot="left">
+    <HeaderTop :title="address.name">
+     <!--<span class="header_search" slot="left">
         <i class="iconfont icon-sousuo"></i>
       </span>
       <span class="header_login" slot="right">
         <span class="header_login_text">登录|注册</span>
       </span>
+      -->
+      <router-link class="header_search" slot="left" to="/search">
+        <i class="iconfont icon-sousuo"></i>
+      </router-link>
+      <router-link class="header_login" slot="right" :to="userInfo._id?'/userInfo':'/login'">
+        <span class="header_login_text" v-if="!userInfo._id">
+          登录|注册
+        </span>
+        <span class="header_login_text" v-else>
+          <i class="iconfont icon-yonghu1"></i>
+        </span>
+      </router-link>
     </HeaderTop>
     <!--首页导航-->
     <nav class="msite_nav">
-      <div class="swiper-container">
+      <div class="swiper-container" v-if="categorys.length">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/1.jpg">
-              </div>
-              <span>甜品饮品</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/2.jpg">
-              </div>
-              <span>商超便利</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/3.jpg">
-              </div>
-              <span>美食</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/4.jpg">
-              </div>
-              <span>简餐</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/5.jpg">
-              </div>
-              <span>新店特惠</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/6.jpg">
-              </div>
-              <span>准时达</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/7.jpg">
-              </div>
-              <span>预订早餐</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="./images/nav/8.jpg">
-              </div>
-              <span>土豪推荐</span>
-            </a>
-          </div>
-          <div class="swiper-slide">
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/9.jpg">
-              </div>
-              <span>甜品饮品</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/10.jpg">
-              </div>
-              <span>商超便利</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/11.jpg">
-              </div>
-              <span>美食</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/12.jpg">
-              </div>
-              <span>简餐</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/13.jpg">
-              </div>
-              <span>新店特惠</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/14.jpg">
-              </div>
-              <span>准时达</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/1.jpg">
-              </div>
-              <span>预订早餐</span>
-            </a>
-            <a href="javascript:" class="link_to_food">
-              <div class="food_container">
-                <img src="images/nav/2.jpg">
-              </div>
-              <span>土豪推荐</span>
-            </a>
+            <div class="swiper-slide" v-for="(categorys, index) in categorysArr" :key="index">
+              <a href="javascript:" class="link_to_food" v-for="(category, index) in categorys" :key="index">
+                <div class="food_container">
+                  <!--图片路径不完整，在data中反问其基础路径-->
+                  <img :src="baseImageUrl+category.image_url">
+                  <!--<img src="baseImageUrl{{category.image_url}}">-->
+                </div>
+                <span>{{category.title}}</span>
+              </a>
           </div>
         </div>
         <!-- Add Pagination -->
         <div class="swiper-pagination"></div>
       </div>
+      <img src="./images/msite_back.svg" alt="back" v-else>
     </nav>
     <!--首页附近商家-->
     <div class="msite_shop_list">
@@ -131,21 +54,81 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Swiper from 'swiper'
-import 'swiper/swiper-bundle.css'
+import 'swiper/swiper-bundle.min.css'
 import HeaderTop from '../../components/HeaderTop/HeaderTop.vue'
 import ShopList from '../../components/ShopList/ShopList.vue'
 export default {
+  data(){
+    return {
+      baseImageUrl:'https://fuss10.elemecdn.com'
+    }
+  },
   mounted () {
-    //创建一个Swiper对象，实现轮播
-    new Swiper('.swiper-container',{
-      //direction: 'vertical', // 垂直切换选项
-      loop:true,//循环模式选项
-      //如果需要分页器
-      pagination:{
-        el:'.swiper-pagination',
-      }
-    })
+    this.$store.dispatch("getCategorys")
+    //商家列表的请求数据不一定要在shopList组件中，但是读一定要在相应的组件中
+    //即此时不能再这里使用...mapState读取shops数据
+    this.$store.dispatch("getShops")
+  },
+  watch:{
+    //其中categorys是属性，这里是回调函数
+    //数据改变状态或改变和dom的更新是分两步
+    //1.变化数据--更新状态
+    //2.异步更新界面
+    categorys (value){
+      this.$nextTick(()=>{
+        //一旦完成界面更新，立即调用（词条语句要写在数据更新之后）
+        new Swiper('.swiper-container',{
+          //direction: 'vertical', // 垂直切换选项
+          loop:true,//循环模式选项
+          //如果需要分页器
+          pagination:{
+            el:'.swiper-pagination',
+          }
+        })
+      })
+      /*setTimeout(()=>{
+        //创建一个Swiper对象，实现轮播(轮播其作用是要在列表显示数据之后）
+        //最开始的时候categorys是一个空数组，后来才有数据
+        //因此使用监视watch，监视categorys当有数据时使得轮播其作用
+        new Swiper('.swiper-container',{
+          //direction: 'vertical', // 垂直切换选项
+          loop:true,//循环模式选项
+          //如果需要分页器
+          pagination:{
+            el:'.swiper-pagination',
+          }
+        })
+      },100)*/
+      //界面更新立即创建swiper对象
+    }
+  },
+  computed: {
+    //[]的值取决与你要读取vuex哪个属性
+    ...mapState(['address','categorys','userInfo']),
+    //需要根据已有的数据categorys一维数组生成一个二维数组categorysArr，其中一维数组最大的个数为8
+    categorysArr() {
+      const {categorys}=this
+      //准备一个空的二维数组
+      const arr=[]
+      //准备空的一维数组
+      let minArr=[]
+      //要实现元素加入小数组，小数组加入大数组相关联
+      categorys.forEach(c=>{
+        //当minArr元素等于8个时（满），则重新分配一个新的数组
+        if(minArr.length===8){
+          minArr=[]
+        }
+        //当minArr长度为0时，将minArr添加到arr中
+        if(minArr.length===0){
+          arr.push(minArr)
+        }
+        //将c添加到minArr中，实现关联操作
+        minArr.push(c)
+      })
+      return arr
+    }
   },
   components:{
     HeaderTop,
@@ -158,7 +141,6 @@ export default {
 @import "../../commont/stylus/mixins.styl"
 .msite  //首页
   width 100%
-
   .msite_nav
     bottom-border-1px(#e4e4e4)
     margin-top 45px
@@ -360,3 +342,4 @@ export default {
                 .segmentation
                   color #ccc
 </style>
+`
