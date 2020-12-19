@@ -1,4 +1,4 @@
-# gshop
+# shop
 
 外卖 Web App (SPA)
 
@@ -33,4 +33,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - es6/eslint采用es6语法，并使用eslint检查语法
 - stylus对css扩展，让css语言更加强大，优雅
 
-# 3 技术选型
+# 3 目标功能
+  * 手机验证码登录注册----完成
+  * 个人中心----完成
+  * 商家首页----完成
+  * 商家详情展示----完成
+  * 商品详情展示----完成
+  * 添加购物车----完成
+  * 关键字搜索商家----完成
+  
