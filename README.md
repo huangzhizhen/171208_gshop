@@ -79,3 +79,14 @@ src
 - store vuex相关模块文件夹
      App.vue 应用组件
      main.js 入口JS
+     
+# 项目运行
+```
+git clone https://github.com/huangzhizhen/171208_gshop.git  
+
+cd 171208_gshop
+
+npm install
+
+npm run dev
+```
