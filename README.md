@@ -44,5 +44,36 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   * 定位功能----完成
   * 关键字搜索商家----完成
   
-# 4 部分截图
-![](https://github.com/huangzhizhen/171208_gshop/raw/master/static/imgs/个人中心.png) 
+
+
+# 4 项目结构分析
+gshop
+|-- build : webpack 相关的配置文件夹(基本不需要修改)
+|-- config: webpack 相关的配置文件夹(基本不需要修改)
+|-- index.js: 指定的后台服务的端口号和静态资源文件夹
+|-- node_modules
+|-- src : 源码文件夹
+|-- main.js: 应用入口 js
+|-- static: 静态资源文件夹
+|-- .babelrc: babel 的配置文件
+|-- .editorconfig: 通过编辑器的编码/格式进行一定的配置
+|-- .eslintignore: eslint 检查忽略的配置
+|-- .eslintrc.js: eslint 检查的配置
+|-- .gitignore: git 版本管制忽略的配置
+|-- index.html: 主页面文件
+|-- package.json: 应用包配置文件
+|-- README.md: 应用描述说明的 readme 文件
+
+# 5 项目源码目录结构
+
+src
+|--api与后台交互模块文件夹
+|--common 通用资源文件夹，如fonts/imgs/stylus
+|--components 非路由组件文件夹
+|--filter 自定义过滤器模块文件夹
+|--mock 模拟数据接口文件夹
+|--pages 路由组件文件夹
+|--router 路由器文件夹
+|--store vuex相关模块文件夹
+     App.vue 应用组件
+     main.js 入口JS
