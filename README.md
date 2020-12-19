@@ -80,7 +80,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
      App.vue 应用组件
      main.js 入口JS
      
-# 项目运行
+# 6 项目运行
 ```
 git clone https://github.com/huangzhizhen/171208_gshop.git  
 
