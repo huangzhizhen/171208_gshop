@@ -41,4 +41,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   * 商品详情展示----完成
   * 添加购物车----完成
   * 关键字搜索商家----完成
+  * 定位功能----完成
+  * 关键字搜索商家----完成
   
+# 4 部分截图
+![](https://github.com/huangzhizhen/171208_gshop/raw/master/static/imgs/个人中心.png) 
