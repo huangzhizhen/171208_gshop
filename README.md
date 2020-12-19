@@ -46,7 +46,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
  
 
 # 4 项目结构分析
-gshop
+### gshop
 - build : webpack 相关的配置文件夹
 - config: webpack 相关的配置文件夹
 - index.js: 指定的后台服务的端口号和静态资源文件夹
@@ -68,7 +68,7 @@ gshop
 
 
 # 5 项目源码目录结构
-src
+### src
 - api与后台交互模块文件夹
 - common 通用资源文件夹，如fonts/imgs/stylus
 - components 非路由组件文件夹
