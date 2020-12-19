@@ -34,35 +34,36 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - stylus对css扩展，让css语言更加强大，优雅
 
 # 3 目标功能
-  * 手机验证码登录注册----完成
-  * 个人中心----完成
-  * 商家首页----完成
-  * 商家详情展示----完成
-  * 商品详情展示----完成
-  * 添加购物车----完成
-  * 关键字搜索商家----完成
-  * 定位功能----完成
-  * 关键字搜索商家----完成
-  
-
+  - [x] 手机验证码登录注册----完成
+  - [x] 个人中心----完成
+  - [x] 商家首页----完成
+  - [x] 商家详情展示----完成
+  - [x] 商品详情展示----完成
+  - [x] 添加购物车----完成
+  - [x] 关键字搜索商家----完成
+  - [x] 定位功能----完成
+  - [x] 关键字搜索商家----完成
+ 
 
 # 4 项目结构分析
 gshop
-|-- build : webpack 相关的配置文件夹(基本不需要修改)
-|-- config: webpack 相关的配置文件夹(基本不需要修改)
-|-- index.js: 指定的后台服务的端口号和静态资源文件夹
-|-- node_modules
-|-- src : 源码文件夹
-|-- main.js: 应用入口 js
-|-- static: 静态资源文件夹
-|-- .babelrc: babel 的配置文件
-|-- .editorconfig: 通过编辑器的编码/格式进行一定的配置
-|-- .eslintignore: eslint 检查忽略的配置
-|-- .eslintrc.js: eslint 检查的配置
-|-- .gitignore: git 版本管制忽略的配置
-|-- index.html: 主页面文件
-|-- package.json: 应用包配置文件
-|-- README.md: 应用描述说明的 readme 文件
+> build : webpack 相关的配置文件夹
+> config: webpack 相关的配置文件夹
+> index.js: 指定的后台服务的端口号和静态资源文件夹
+> node_modules
+> src : 源码文件夹
+> main.js: 应用入口 js
+> static: 静态资源文件夹
+> .babelrc: babel 的配置文件
+> .editorconfig: 通过编辑器的编码/格式进行一定的配置
+> .eslintignore: eslint 检查忽略的配置
+> .eslintrc.js: eslint 检查的配置
+> .gitignore: git 版本管制忽略的配置
+> index.html: 主页面文件
+> package.json: 应用包配置文件
+> README.md: 应用描述说明的 readme 文件
+
+
 
 # 5 项目源码目录结构
 
