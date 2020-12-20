@@ -90,10 +90,3 @@ npm install
 
 npm run dev
 ```
-# 部分截图
-
-![登录页](https://img-blog.csdnimg.cn/20201220095705405.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njg3MjEyMQ==,size_16,color_FFFFFF,t_70)<br>
-![个人中心](https://img-blog.csdnimg.cn/2020122010003737.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njg3MjEyMQ==,size_16,color_FFFFFF,t_70)<br>
-![商品列表](https://img-blog.csdnimg.cn/20201220100401391.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njg3MjEyMQ==,size_16,color_FFFFFF,t_70)<br>
-![商品详情](https://img-blog.csdnimg.cn/20201220100603985.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njg3MjEyMQ==,size_16,color_FFFFFF,t_70)<br>
-![商家详情](https://img-blog.csdnimg.cn/20201220100437862.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Njg3MjEyMQ==,size_16,color_FFFFFF,t_70)
